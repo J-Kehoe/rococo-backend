@@ -33,10 +33,6 @@ io.on("connection", (socket) => {
     const roomIndex = photos.findIndex((obj) => obj.roomId === roomId);
     const roomPhotos = photos[roomIndex]
 
-    console.log('room', roomPhotos)
-
-    console.log('server photos', photos)
-
     if (roomPhotos) {
       console.log(`room ${roomId} exists, sending photos`)
       io.to(roomId).emit("photos", roomPhotos.photos);
@@ -59,7 +55,7 @@ io.on("connection", (socket) => {
     const roomIndex = photos.findIndex(obj => obj.roomId === roomId);
     photos[roomIndex].photos.push(imgData)
 
-    console.log('server photos updated', photos)
+    console.log('server photos updated')
 
     io.to(roomId).emit("photos", photos[roomIndex].photos);
   });
