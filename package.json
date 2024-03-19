@@ -1,5 +1,5 @@
 {
-  "name": "@fl0/template-nodejs",
+  "name": "rococo-backend",
   "version": "1.0.0",
   "description": "A simple Node.js Express app for getting started on FL0",
   "scripts": {

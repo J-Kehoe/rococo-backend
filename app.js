@@ -22,6 +22,10 @@ const photos = [];
 io.on("connection", (socket) => {
 
   console.log(`⚡: ${socket.id} user just connected!`);
+  var roomArray = photos.map(function (el) { return el.roomId; });
+
+  socket.emit('active-rooms', roomArray)
+  console.log('active rooms:', roomArray)
 
   socket.on("join-room", (roomId, userId) => {
 
