@@ -61,7 +61,7 @@ io.on("connection", (socket) => {
 
     console.log('server photos updated')
 
-    io.to(roomId).emit("photos", photos[roomIndex].photos);
+    io.to(roomId).emit("new-photo", imgData);
   });
 
   socket.on("disconnect", () => {
