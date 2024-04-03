@@ -57,6 +57,10 @@ io.on("connection", (socket) => {
   socket.on("send-photo", (roomId, imgData) => {
     console.log(`🔥: send-photo for room ${roomId}`);
     const roomIndex = photos.findIndex(obj => obj.roomId === roomId);
+    if (roomIndex === -1) {
+      console.log('room does not exist')
+      return;
+    }
     photos[roomIndex].photos.push(imgData)
 
     console.log('server photos updated')
